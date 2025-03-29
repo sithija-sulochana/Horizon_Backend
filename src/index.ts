@@ -14,9 +14,9 @@ const app = express();
 app.use(clerkMiddleware());
 // Middleware to parse JSON data in the request body
 app.use(express.json());
-app.use(cors());
+app.use(cors({origin:"aidf-horizon-frontend-sithija.netlify.app"}));
 
-connectDB();
+
 
 // app.use((req, res, next) => {
 //   console.log("Hello World");
@@ -28,6 +28,10 @@ app.use("/api/bookings", bookingsRouter);
 
 app.use(globalErrorHandlingMiddleware);
 
+
+
+connectDB();
+const PORT = process.env.PORT || 8000;
 // Define the port to run the server
-const PORT = 8000;
+//const PORT = 8000;
 app.listen(PORT, () => console.log(`Server is running on port ${PORT}...`));
