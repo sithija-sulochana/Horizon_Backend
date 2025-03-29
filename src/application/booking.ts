@@ -17,7 +17,7 @@ export const createBooking = async (
     if (!booking.success) {
       throw new ValidationError(booking.error.message)
     }
-
+    //@ts-ignore
     const user = req.auth;
 
     // Add the booking
